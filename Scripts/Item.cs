@@ -45,28 +45,31 @@ public class Item : MonoBehaviour
 
             // TODO 1 - Obtener componente GameManager del GameObject m_GameManager y guardarlo
             // en una variable local
-            GameManager gmComp = null;
+            GameManager gmComp = m_GameManager.GetComponent<GameManager>();
 
             // TODO 2 - Si el componente existe..
             if (gmComp)
             {
                 // TODO 3 - llamar directamente a la función ActivateDoor sobre el componente GameManager
                 // Como parámetro, habrá que pasarle el m_DoorColorToActivate, y un true, indicando que SI quieres activar la puerta
-
+                gmComp.ActivateDoor(m_DoorColorToActivate, true);
 
                 // TODO 4 - Crear un nuevo GameObject (indicar que es necesario para crear un nuevo transform)
                 // Dicho GameObject será el nuevo spawnPoint del player. Habrá que sumarle (0,4,0) a su posición para
                 // que al hacer el relocate del player, éste no atraviese el suelo
 
+                GameObject spawn = new GameObject();
+                Vector3 playerPos = other.transform.position;
+                spawn.transform.position = new Vector3(playerPos.x, playerPos.y + 4, playerPos.z);
 
                 // TODO 5 - Llamar directamente a la función SetCurrentSpawnPoint sobre el componente GameManager
                 // pasando como parámetro la matriz de transformación de nuestro nuevo GameObject
-
+                gmComp.SetCurrentSpawnPoint(spawn.transform);
 
                 // TODO 6 - Autodestruirse
                 //Desaparece el ítem de la escena
                 // Pista: Destroy(...);
-   
+                Destroy(this.gameObject);
 
             }
             else
