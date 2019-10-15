@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59dd80a53e209b74680197e754c56e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 944110987}
+  m_Player: {fileID: 1652779072}
 --- !u!65 &379929664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -380,12 +380,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &944110987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8851786202110720860, guid: b6abaae785699aa49a755ef8e83f1f19,
-    type: 3}
-  m_PrefabInstance: {fileID: 1201341395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1201341395
 PrefabInstance:
   m_ObjectHideFlags: 0
