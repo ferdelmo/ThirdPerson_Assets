@@ -3,6 +3,7 @@ using UnityEngine;
 public class TriggerLoadAdditive : MonoBehaviour
 {
     // TODO 1 - Añadir string público que será el nombre del nivel a cargar
+    public GameManager.DoorColor m_LevelToLoad;
 
     /// <summary>
     /// La comprobación del tipo de gameobject que entra en el trigger se hace por tag
@@ -17,12 +18,24 @@ public class TriggerLoadAdditive : MonoBehaviour
 	/// </summary>
 	void OnTriggerEnter(Collider other)
 	{
-		//LoadLevelAdditive(other.gameObject);
+		LoadLevelAdditive(other.gameObject);
 	}
 
 
     // TODO 2 - Hacer función que cargue un nivel de forma aditiva.
     // Será necesario pasarle el gameObject que ha colisionado con el trigger
     // Tras cargar el nivel, desactivamos el trigger
-    
+    void LoadLevelAdditive(GameObject go)
+    {
+        if (go.tag == m_PlayerTag)
+        {
+            //Application.LoadLevelAdditive(m_LevelToLoad);
+            GetComponent<Collider>().enabled = false;
+            GameObject gogm = GameObject.FindGameObjectWithTag("GameManager");
+            GameManager gm = gogm.GetComponent<GameManager>();
+            gm.TriggerLoadAdditive(m_LevelToLoad);
+        }
+    }
+
+
 }
