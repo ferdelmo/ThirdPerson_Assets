@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59dd80a53e209b74680197e754c56e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 1652779072}
+  m_Player: {fileID: 944110987}
 --- !u!65 &379929664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -380,6 +380,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &944110987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8851786202110720860, guid: b6abaae785699aa49a755ef8e83f1f19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1201341395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1201341395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,6 +503,36 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1844097731}
+    - target: {fileID: 8851786202110720860, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919130881139880437, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919130881139880437, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919130881139880437, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178122443459961843, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919130881132910641, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_FollowVelocity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9178122443466074289, guid: b6abaae785699aa49a755ef8e83f1f19,
         type: 3}
       propertyPath: m_JumpPower

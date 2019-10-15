@@ -15,8 +15,9 @@ public class DeathScript: MonoBehaviour{
 	/// En la función Start hacemos una búsqueda del GameManager
 	/// </summary>
 	void Start () {
-		
-		// TODO 1 - Buscamos un GameObject cuyo tag sea "GameManager"
+
+        // TODO 1 - Buscamos un GameObject cuyo tag sea "GameManager"
+        m_GameManager = GameObject.FindGameObjectWithTag("GameManager");
  
 	}
 	
@@ -30,8 +31,12 @@ public class DeathScript: MonoBehaviour{
 	void OnTriggerEnter(Collider other)
 	{
 		// TODO 2 - Comprobamos que el transform del objeto que colisiona, es el player
-
+        if(other.tag == "Player")
+        {
             // TODO 3 - Enviamos un mensaje al GameManager llamando a la función "RespawnPlayer"
+            m_GameManager.SendMessage("RespawnPlayer");
+        }
 
-	}
+
+    }
 }
