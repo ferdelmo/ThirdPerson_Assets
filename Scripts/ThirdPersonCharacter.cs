@@ -16,7 +16,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
-		Rigidbody m_Rigidbody;
+        private float m_lastPowerUp = 12f;
+
+        Rigidbody m_Rigidbody;
 		Animator m_Animator;
 		bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
@@ -221,5 +223,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
-	}
+
+        public void SetJumpHeight(float height)
+        {
+            m_lastPowerUp = m_JumpPower;
+            m_JumpPower = height;
+        }
+
+        public void RestoreJumpHeight()
+        {
+            m_JumpPower = m_lastPowerUp;
+        }
+    }
+    
 }
