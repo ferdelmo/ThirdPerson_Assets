@@ -24,7 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         Rigidbody m_Rigidbody;
 		Animator m_Animator;
-		bool m_IsGrounded;
+		public bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
 		float m_TurnAmount;
@@ -182,6 +182,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
 
+        public void Jump()
+        {
+            // jump!
+            m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+            m_IsGrounded = false;
+            m_Animator.applyRootMotion = false;
+            m_GroundCheckDistance = 0.1f;
+        }
 
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{

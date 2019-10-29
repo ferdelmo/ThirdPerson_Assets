@@ -5,23 +5,28 @@ using UnityEngine;
 public class AIChomperController : MonoBehaviour
 {
     [Range(0, 1)]
-    public float animationSpeed;
     public float speed;
     public float runSpeed;
     public float rotationSpeed = 40;
     public float runRotationSpeed = 65;
     public Transform[] points;
     public float fov = 45;
+    public float range = 10;
     
-    private float animationSpeedWalk = 0.3f;
+    private float animationSpeedWalk = 0.4f;
     private float animationSpeedRun = 0.6f;
-    public float minDistSqr = 0.1f;
+    public float minDistSqr = 2;
     private bool enemyFound = false;
     private int nextPosition = 1;
     private Rigidbody rigidbody;
     private ChomperAnimation chomperAnimation;
     private Transform enemyPosition;
 
+    bool orientNeeded = false;
+
+    public bool rotate = false;
+
+    private int i = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,44 +35,45 @@ public class AIChomperController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         chomperAnimation = GetComponent<ChomperAnimation>();
         enemyPosition = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        orientNeeded = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        enemyFound = seeingEnemy();
-        if (!enemyFound)
+        bool enemy = seeingEnemy();
+        if (!enemy)
         {
-             Vector3 direction = points[nextPosition].position - transform.position;
-             float angle = Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude));
-             if (angle > 0.1)
-             {
-                if(Vector3.Dot(transform.right, direction) < 0)
+            if (orientNeeded && !rotate)
+            {
+
+                rotate = true;
+                orientNeeded = false;
+                chomperAnimation.Updatefordward(0.2f);
+                StartCoroutine(Orient(points[nextPosition].position));
+            }
+            else if (!rotate)
+            {
+                Vector3 direction = points[nextPosition].position - transform.position;
+                //float angle = Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude));
+
+                chomperAnimation.Updatefordward(animationSpeedWalk);
+
+                transform.position = transform.position + direction.normalized * speed * Time.deltaTime;
+                if (direction.sqrMagnitude < minDistSqr)
                 {
-                    chomperAnimation.Updatefordward(animationSpeedWalk);
-                    transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+                    nextPosition = (nextPosition + 1) % points.Length;
+                    rotate = true;
+                    chomperAnimation.Updatefordward(0.2f);
+                    StartCoroutine(Orient(points[nextPosition].position));
                 }
-                else
-                {
-                    chomperAnimation.Updatefordward(animationSpeedWalk);
-                    transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-                }
-             }
-             else
-             {
-                 chomperAnimation.Updatefordward(animationSpeedWalk);
-                 transform.position = transform.position + direction.normalized * speed * Time.deltaTime;
-                 if (direction.sqrMagnitude < minDistSqr)
-                 {
-                     nextPosition = (nextPosition + 1) % points.Length;
-                     Vector3 newDirection = points[nextPosition].position - transform.position;
-                 }
-             }
+            }
         }
         else
         {
+            StopAllCoroutines();
+            rotate = false;
             Vector3 direction = enemyPosition.position - transform.position;
             float angle = Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude));
             if (angle > 0.04)
@@ -84,6 +90,7 @@ public class AIChomperController : MonoBehaviour
                 }
             }
             transform.position += transform.forward * runSpeed * Time.deltaTime;
+            orientNeeded = true;
         }
 
     }
@@ -91,7 +98,36 @@ public class AIChomperController : MonoBehaviour
     bool seeingEnemy()
     {
         Vector3 direction = enemyPosition.position - transform.position;
-        return Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude)) < Mathf.Deg2Rad * fov;
+        return direction.sqrMagnitude < range*range && Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude)) < Mathf.Deg2Rad * fov;
     }
 
+
+    //orient the transform to look at a position (without changing Y axis)
+    IEnumerator Orient(Vector3 pos)
+    {
+        Vector3 direction = pos - transform.position;
+        float angle = Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude));
+        if (Vector3.Dot(transform.right, direction) < 0)
+        {
+            angle = -angle;
+        }
+
+        angle = Mathf.Rad2Deg * angle;
+        Quaternion newRotation = Quaternion.Euler(transform.rotation.eulerAngles + Vector3.up * angle);
+        Quaternion originalRotation = transform.rotation;
+        float time = 0;
+        float rotationTime = Mathf.Abs(angle) / rotationSpeed;
+        while (time < rotationTime)
+        {
+            time += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(originalRotation, newRotation, time / rotationTime);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        Debug.Log(i++);
+        rotate = false;
+        orientNeeded = false;
+
+    }
 }
