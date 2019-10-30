@@ -71,7 +71,6 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-    <Compile Include="Assets\SlipOverPlatform.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Cameras\Scripts\AbstractTargetFollower.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Cameras\Scripts\AutoCam.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Cameras\Scripts\FreeLookCam.cs" />
@@ -110,6 +109,7 @@
     <Compile Include="Assets\ThirdPersonAssets\Scripts\PowerUpTimer.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\RotatingPlatform.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\Rotation.cs" />
+    <Compile Include="Assets\ThirdPersonAssets\Scripts\SlipOverGround.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\StickyFloor.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\SuperJumpPowerUp.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\ThirdPersonCharacter.cs" />

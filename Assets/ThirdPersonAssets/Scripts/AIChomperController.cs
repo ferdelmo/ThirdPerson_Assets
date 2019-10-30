@@ -12,7 +12,9 @@ public class AIChomperController : MonoBehaviour
     public Transform[] points;
     public float fov = 45;
     public float range = 10;
-    
+    public float sqrAttackDistance = 4;
+    public float attackCadence = 2;
+
     private float animationSpeedWalk = 0.4f;
     private float animationSpeedRun = 0.6f;
     public float minDistSqr = 2;
@@ -21,6 +23,8 @@ public class AIChomperController : MonoBehaviour
     private Rigidbody rigidbody;
     private ChomperAnimation chomperAnimation;
     private Transform enemyPosition;
+    private float lastAttack = 0;
+
 
     bool orientNeeded = false;
 
@@ -42,6 +46,7 @@ public class AIChomperController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lastAttack += Time.deltaTime;
         bool enemy = seeingEnemy();
         if (!enemy)
         {
@@ -88,6 +93,12 @@ public class AIChomperController : MonoBehaviour
                     chomperAnimation.Updatefordward(animationSpeedRun);
                     transform.Rotate(0, runRotationSpeed * Time.deltaTime, 0);
                 }
+            }
+            if(direction.sqrMagnitude < sqrAttackDistance && lastAttack >= attackCadence)
+            {
+                Debug.Log("ATTACK");
+                chomperAnimation.Attack();
+                lastAttack = 0;
             }
             transform.position += transform.forward * runSpeed * Time.deltaTime;
             orientNeeded = true;
