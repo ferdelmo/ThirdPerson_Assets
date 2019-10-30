@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChomperDeath : MonoBehaviour
 {
+    //number of hits for the chomper to death
+    public int health = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,11 @@ public class ChomperDeath : MonoBehaviour
 
     void OnDeath()
     {
-        Destroy(this.gameObject);
+        health--;
+
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -7,32 +7,26 @@ public class ChomperGravity : MonoBehaviour
     public float gravity = 9.8f;
     private float velocity = 0;
 
-    int missed = 0;
+    private bool grav = true;
+
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position+Vector3.up*0.5f, Vector3.down, out hit, 0.8f, LayerMask.GetMask("Ground")))
+        grav = !Physics.Raycast(transform.position, -transform.up, out hit, 0.1f, LayerMask.GetMask("Ground"));
+        if (grav)
         {
-            //transform.position = new Vector3(transform.position.x, hit.point.y+, transform.position.z);
-            missed = 0;
+            velocity += gravity * Time.fixedDeltaTime;
         }
         else
         {
-            missed++;
+            velocity = 0;
         }
-
-        if (missed > 20)
-        {
-            Debug.Log("PABAJO");
-            transform.position = transform.position + Vector3.down * velocity * Time.deltaTime;
-            velocity += gravity * Time.deltaTime;
-        }
+        transform.position += Vector3.down * velocity * Time.fixedDeltaTime;
     }
 }

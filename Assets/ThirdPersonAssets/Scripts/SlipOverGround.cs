@@ -79,25 +79,28 @@ public class SlipOverGround : MonoBehaviour
                 }
             }
         }
-        if (!incrementVelocity && velocity > 0)
+        if (!more45degreesOnly)
         {
-            float roza = 8*gravity;
-            velocity -= roza * Time.fixedDeltaTime;
-            if (velocity < 0)
+            if (!incrementVelocity && velocity > 0)
             {
-                velocity = 0;
+                float roza = 8 * gravity;
+                velocity -= roza * Time.fixedDeltaTime;
+                if (velocity < 0)
+                {
+                    velocity = 0;
+                }
             }
+            Vector3 movement;
+            //dont move on Y, as rigibody use gravity
+            if (!incrementVelocity)
+            {
+                movement = new Vector3(inertia.x, 0, inertia.z) * velocity * Time.fixedDeltaTime;
+            }
+            else
+            {
+                movement = inertia * velocity * Time.fixedDeltaTime;
+            }
+            transform.position += movement;
         }
-        Vector3 movement;
-        //dont move on Y, as rigibody use gravity
-        if (!incrementVelocity)
-        {
-            movement = new Vector3(inertia.x, 0, inertia.z) * velocity * Time.fixedDeltaTime;
-        }
-        else
-        {
-            movement =  inertia * velocity * Time.fixedDeltaTime;
-        }
-        transform.position += movement;
     }
 }

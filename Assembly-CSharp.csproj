@@ -106,6 +106,7 @@
     <Compile Include="Assets\ThirdPersonAssets\Scripts\Item.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\JumpDamage.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\ThirdPersonAssets\Scripts\PlayerDeath.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\PowerUpTimer.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\RotatingPlatform.cs" />
     <Compile Include="Assets\ThirdPersonAssets\Scripts\Rotation.cs" />

@@ -155,6 +155,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Colocamos al player en el punto de spawn actual
 		m_Player.transform.position = m_CurrentSpawnPoint.position;
+        m_Player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 	}
 
 	/// <summary>

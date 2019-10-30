@@ -1,10 +1,6 @@
 using UnityEngine;
 
 public class DeathScript: MonoBehaviour{
-	/// <summary>
-	/// El jugador
-	/// </summary>
-	public GameObject m_Player = null;
 	
 	/// <summary>
 	/// Game Manager para hacer respawn del jugador
