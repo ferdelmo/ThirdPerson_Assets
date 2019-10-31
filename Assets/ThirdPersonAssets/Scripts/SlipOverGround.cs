@@ -23,13 +23,7 @@ public class SlipOverGround : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
+    private void Update()
     {
         RaycastHit hit;
         //Maybe only throws ray where the plataform is close
@@ -69,7 +63,7 @@ public class SlipOverGround : MonoBehaviour
                     }
                     //Debug.Log(mov);
                     //maybe change it for transforms
-                    velocity += gravity * Mathf.Sin(90 * Mathf.Deg2Rad - angle) * Time.fixedDeltaTime;
+                    velocity += gravity * Mathf.Sin(90 * Mathf.Deg2Rad - angle) * Time.deltaTime;
                     inertia = mov;
                     incrementVelocity = true;
                 }
@@ -84,7 +78,7 @@ public class SlipOverGround : MonoBehaviour
             if (!incrementVelocity && velocity > 0)
             {
                 float roza = 8 * gravity;
-                velocity -= roza * Time.fixedDeltaTime;
+                velocity -= roza * Time.deltaTime;
                 if (velocity < 0)
                 {
                     velocity = 0;
@@ -94,11 +88,11 @@ public class SlipOverGround : MonoBehaviour
             //dont move on Y, as rigibody use gravity
             if (!incrementVelocity)
             {
-                movement = new Vector3(inertia.x, 0, inertia.z) * velocity * Time.fixedDeltaTime;
+                movement = new Vector3(inertia.x, 0, inertia.z) * velocity * Time.deltaTime;
             }
             else
             {
-                movement = inertia * velocity * Time.fixedDeltaTime;
+                movement = inertia * velocity * Time.deltaTime;
             }
             transform.position += movement;
         }
