@@ -27,7 +27,7 @@ public class SlipOverGround : MonoBehaviour
     {
         RaycastHit hit;
         //Maybe only throws ray where the plataform is close
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 0.5f, LayerMask.GetMask("Ground")))
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 0.5f, LayerMask.GetMask("Ground")) && hit.transform.tag != "Bridge" && hit.transform.tag != "Terrain")
         {
             if (more45degreesOnly)
             {
