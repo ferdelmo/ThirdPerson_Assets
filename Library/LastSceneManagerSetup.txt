@@ -1,9 +1,5 @@
 sceneSetups:
-- path: Assets/ThirdPersonAssets/Scenes/Scene.unity
-  isLoaded: 1
-  isActive: 0
-  isSubScene: 0
-- path: Assets/ThirdPersonAssets/Scenes/red_world.unity
+- path: Assets/ThirdPersonAssets/Scenes/WinScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
