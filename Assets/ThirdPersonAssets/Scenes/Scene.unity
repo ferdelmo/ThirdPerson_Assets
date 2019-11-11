@@ -126,7 +126,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31796
+  m_Name: pb_Mesh22926
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1245,7 +1245,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31826
+  m_Name: pb_Mesh22958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1539,7 +1539,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31946
+  m_Name: pb_Mesh23080
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1803,6 +1803,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3706193728329666634, guid: b6abaae785699aa49a755ef8e83f1f19,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3706193729078474026, guid: b6abaae785699aa49a755ef8e83f1f19,
         type: 3}
       propertyPath: m_Layer
@@ -1887,11 +1892,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Textures0.Array.data[223].y
       value: 0.0087753
-      objectReference: {fileID: 0}
-    - target: {fileID: 3706193728329666634, guid: b6abaae785699aa49a755ef8e83f1f19,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3706193728329666635, guid: b6abaae785699aa49a755ef8e83f1f19,
         type: 3}
@@ -2632,7 +2632,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-22602
+  m_Name: pb_Mesh22928
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2914,7 +2914,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-22616
+  m_Name: pb_Mesh-6918
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_RedDoor: {fileID: 625230949}
   m_BlueDoor: {fileID: 283430786}
   m_YellowDoor: {fileID: 2047570199}
-  m_Cheater: 0
+  m_Cheater: 1
   greenSceneName: green_world
   redSceneName: red_world
   blueSceneName: blue_world

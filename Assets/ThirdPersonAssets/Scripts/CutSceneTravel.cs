@@ -34,7 +34,7 @@ public class CutSceneTravel : MonoBehaviour
         }
     }
 
-    IEnumerator Travel()
+    public IEnumerator Travel()
     {
         Vector3 direction = Vector3.zero;
         Vector3 initialPosition = m_Camera.transform.position;

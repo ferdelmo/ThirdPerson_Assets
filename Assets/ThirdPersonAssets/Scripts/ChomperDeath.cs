@@ -6,7 +6,21 @@ public class ChomperDeath : MonoBehaviour
 {
     //number of hits for the chomper to death
     public int health = 2;
-    // Start is called before the first frame update
+
+    public delegate void OnDeathFunctions();
+
+    OnDeathFunctions odf;
+
+    public void RegisterOnDeath(OnDeathFunctions o)
+    {
+        odf += o;
+    }
+
+    public void UnRegisterOnDeath(OnDeathFunctions o)
+    {
+        odf -= o;
+    }
+
     void Start()
     {
         
@@ -24,6 +38,7 @@ public class ChomperDeath : MonoBehaviour
 
         if(health <= 0)
         {
+            odf?.Invoke();
             Destroy(this.gameObject);
         }
     }

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ThirdPersonAssets/Scenes/red_world.unity
     guid: d4b7675b5d39e5a41affee38aba92617
+  - enabled: 1
+    path: Assets/ThirdPersonAssets/Scenes/WinScene.unity
+    guid: c27cab70b8b3faf48b28f2f2d9e369ce
   m_configObjects: {}
