@@ -42,4 +42,10 @@ public class ChomperDeath : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    void Die()
+    {
+        odf?.Invoke();
+        Destroy(this.gameObject);
+    }
 }

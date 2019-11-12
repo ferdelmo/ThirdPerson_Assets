@@ -96,7 +96,6 @@ public class AIChomperController : MonoBehaviour
             }
             if(direction.sqrMagnitude < sqrAttackDistance && lastAttack >= attackCadence)
             {
-                Debug.Log("ATTACK");
                 chomperAnimation.Attack();
                 lastAttack = 0;
             }
@@ -135,8 +134,7 @@ public class AIChomperController : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
-        Debug.Log(i++);
+        
         rotate = false;
         orientNeeded = false;
 

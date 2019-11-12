@@ -22,7 +22,6 @@ public class PlayerDeath : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log("SE MUERE");
             if (!ignore)
             {
                 m_GameManager.SendMessage("RespawnPlayer");
@@ -32,10 +31,8 @@ public class PlayerDeath : MonoBehaviour
 
     public IEnumerator Ignore()
     {
-        Debug.Log("JOOOOOOOOOOOOOOOOOOOOOOODER");
         ignore = true;
         yield return new WaitForSeconds(1);
-        Debug.Log("JOOOOOOOOOOOOOOOOOOOOOOODER 2");
         ignore = false;
     }
 }

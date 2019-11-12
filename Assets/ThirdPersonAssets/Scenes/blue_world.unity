@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenericItem
       objectReference: {fileID: 0}
+    - target: {fileID: 2053976008, guid: 06ed70ccadf67de499f360bd29010573, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d70f14650174ff5489ecb88cbd98b777, type: 2}
     - target: {fileID: 6487149624888449799, guid: 06ed70ccadf67de499f360bd29010573,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,10 +196,6 @@ PrefabInstance:
       propertyPath: m_DoorColorToActivate
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2053976008, guid: 06ed70ccadf67de499f360bd29010573, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d70f14650174ff5489ecb88cbd98b777, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06ed70ccadf67de499f360bd29010573, type: 3}
 --- !u!1 &684146503 stripped
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f220fb6381cbc4e49bd35993501a1ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RotateType: 0
+  m_RotateType: 1
   m_RotateX: 0
   m_RotateY: 0
   m_RotateZ: 1
@@ -391,7 +391,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25410
+  m_Name: pb_Mesh23468
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447283901}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d9c400b1a2923b4c95be1fb0a2d3ce1, type: 3}
   m_Name: 

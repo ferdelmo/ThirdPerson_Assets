@@ -32,6 +32,10 @@ public class DeathScript: MonoBehaviour{
             // TODO 3 - Enviamos un mensaje al GameManager llamando a la función "RespawnPlayer"
             m_GameManager.SendMessage("RespawnPlayer");
         }
+        if(other.tag == "Enemy")
+        {
+            other.transform.gameObject.SendMessage("Die");
+        }
 
 
     }

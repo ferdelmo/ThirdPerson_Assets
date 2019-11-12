@@ -33,8 +33,7 @@ public class SlipOverGround : MonoBehaviour
             {
                 if (Mathf.Acos(Vector3.Dot(hit.normal, transform.up) / (hit.normal.magnitude * transform.up.magnitude)) > 45 * Mathf.PI / 180)
                 {
-
-                    //Debug.Log("esta sucediendo");
+                    
                     Vector3 d = Vector3.Cross(transform.up.normalized, hit.normal.normalized);
 
                     Vector3 mov = Vector3.Cross(hit.normal, d);
@@ -42,7 +41,6 @@ public class SlipOverGround : MonoBehaviour
                     {
                         mov = -mov;
                     }
-                    //Debug.Log(mov);
                     //maybe change it for transforms
                     rb.AddForce(mov * force, ForceMode.Force);
                 }
@@ -52,8 +50,7 @@ public class SlipOverGround : MonoBehaviour
                 float angle = Mathf.Acos(Vector3.Dot(hit.normal, transform.up) / (hit.normal.magnitude * transform.up.magnitude));
                 if (angle > 10 * Mathf.Deg2Rad)
                 {
-
-                    //Debug.Log("esta sucediendo");
+                    
                     Vector3 d = Vector3.Cross(transform.up.normalized, hit.normal.normalized);
 
                     Vector3 mov = Vector3.Cross(hit.normal, d);
@@ -61,7 +58,6 @@ public class SlipOverGround : MonoBehaviour
                     {
                         mov = -mov;
                     }
-                    //Debug.Log(mov);
                     //maybe change it for transforms
                     velocity += gravity * Mathf.Sin(90 * Mathf.Deg2Rad - angle) * Time.deltaTime;
                     inertia = mov;
