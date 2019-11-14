@@ -20,8 +20,11 @@ public class JumpDamage : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") && !tpc.m_IsGrounded)
         {
+            //if he jump over the dmg
             StartCoroutine(pd.Ignore());
+            //send ondeath msg to the chomp
             other.gameObject.transform.parent.SendMessage("OnDeath");
+            //jump after the damage (as in super mario when u hit and enemy u jump over it
             tpc.Jump();
             
         }

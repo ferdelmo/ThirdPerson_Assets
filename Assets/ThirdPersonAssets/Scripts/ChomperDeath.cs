@@ -11,6 +11,7 @@ public class ChomperDeath : MonoBehaviour
 
     OnDeathFunctions odf;
 
+    //delegate to call function on chomp death
     public void RegisterOnDeath(OnDeathFunctions o)
     {
         odf += o;

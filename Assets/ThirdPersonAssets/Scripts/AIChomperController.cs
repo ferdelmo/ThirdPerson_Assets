@@ -50,6 +50,8 @@ public class AIChomperController : MonoBehaviour
         bool enemy = seeingEnemy();
         if (!enemy)
         {
+            //If it doesnt see the enemy
+            //Check if chomp is oriente to the position
             if (orientNeeded && !rotate)
             {
 
@@ -58,6 +60,7 @@ public class AIChomperController : MonoBehaviour
                 chomperAnimation.Updatefordward(0.2f);
                 StartCoroutine(Orient(points[nextPosition].position));
             }
+            //If oriented, advance to the position
             else if (!rotate)
             {
                 Vector3 direction = points[nextPosition].position - transform.position;
@@ -77,10 +80,12 @@ public class AIChomperController : MonoBehaviour
         }
         else
         {
+            //Stop the rotation coroutines if they exist
             StopAllCoroutines();
             rotate = false;
             Vector3 direction = enemyPosition.position - transform.position;
             float angle = Mathf.Acos(Vector3.Dot(direction, transform.forward) / (direction.magnitude * transform.forward.magnitude));
+            //check if the chomp need to rotate
             if (angle > 0.04)
             {
                 if (Vector3.Dot(transform.right, direction) < 0)
@@ -94,6 +99,7 @@ public class AIChomperController : MonoBehaviour
                     transform.Rotate(0, runRotationSpeed * Time.deltaTime, 0);
                 }
             }
+            //check if the chomp is closer to attack, also using cadence
             if(direction.sqrMagnitude < sqrAttackDistance && lastAttack >= attackCadence)
             {
                 chomperAnimation.Attack();

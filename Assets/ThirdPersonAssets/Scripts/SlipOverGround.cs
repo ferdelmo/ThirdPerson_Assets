@@ -58,7 +58,7 @@ public class SlipOverGround : MonoBehaviour
                     {
                         mov = -mov;
                     }
-                    //maybe change it for transforms
+                    //Every frame the velocity grow depending on the angle and the gravity
                     velocity += gravity * Mathf.Sin(90 * Mathf.Deg2Rad - angle) * Time.deltaTime;
                     inertia = mov;
                     incrementVelocity = true;
@@ -84,6 +84,7 @@ public class SlipOverGround : MonoBehaviour
             //dont move on Y, as rigibody use gravity
             if (!incrementVelocity)
             {
+                //this is used to dont make a hard stop when falling over the tilt plane
                 movement = new Vector3(inertia.x, 0, inertia.z) * velocity * Time.deltaTime;
             }
             else

@@ -15,6 +15,7 @@ public class DoorOpeningObserver : MonoBehaviour
         chomper.RegisterOnDeath(OpenDoor);
     }
 
+    //funciton to open the door and call the cutscene travel
     void OpenDoor()
     {
         StartCoroutine(OpenDoorWithCutscene());
