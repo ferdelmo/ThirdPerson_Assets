@@ -3,3 +3,7 @@ sceneSetups:
   isLoaded: 1
   isActive: 1
   isSubScene: 0
+- path: Assets/ThirdPersonAssets/Scenes/red_world.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
