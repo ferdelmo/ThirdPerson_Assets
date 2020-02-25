@@ -36,6 +36,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		bool m_Crouching;
 
 
+        //Delegates to call functions in the air
         public void RegisterOnJumpComprobation(OnJumpComprobation o)
         {
             ojc += o;

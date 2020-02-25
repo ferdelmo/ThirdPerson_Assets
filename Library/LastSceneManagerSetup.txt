@@ -3,7 +3,11 @@ sceneSetups:
   isLoaded: 1
   isActive: 1
   isSubScene: 0
+<<<<<<< HEAD
 - path: Assets/ThirdPersonAssets/Scenes/red_world.unity
+=======
+- path: Assets/ThirdPersonAssets/Scenes/yellow_world.unity
+>>>>>>> 8eeeb02b2d40df2b8c45ca0c71110539e93e8b14
   isLoaded: 1
   isActive: 0
   isSubScene: 0
